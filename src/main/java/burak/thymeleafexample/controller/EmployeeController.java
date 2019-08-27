@@ -12,15 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.PostConstruct;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.cfg.Configuration;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -63,7 +55,7 @@ public class EmployeeController {
         Session session = sessionFactory.getCurrentSession();
 
         try {
-            
+
             session.beginTransaction();
             Criteria cr = session.createCriteria(Employee.class);
             cr.add(Restrictions.like("firstName",name+"%"));
